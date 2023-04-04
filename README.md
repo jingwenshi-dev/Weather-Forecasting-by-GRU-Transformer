@@ -16,7 +16,15 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 
 #### Parameters
 
-
+-   Input size (input_size)
+    -   The number of features for each piece of the data. In this project, it will be 5.
+        -   i.e. Temperature (Temp), Relative Humidity (Rel Hum), Precipitation Amount (Precip Amount), Wind Speed (Wind Spd), Station Pressure (Stn Press).
+-   Hidden size (hidden_size)
+    -   The number of hidden units in each GRU which determines the capacity of the model of capturing data patterns.
+-   Output size (output_size)
+    -   The number of predictions. In the case of predicting the next 24 hours of data, the output size is 24.
+-   Number of layers (num_layers)
+    -   The number of GRU layers in the model. The more the layer, the more complex patterns the model can learn.
 
 #### Examples
 
@@ -28,7 +36,9 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 
 The data (from 2015 to 2022) comes from [Weather Canada](https://climate.weather.gc.ca/climate_data/hourly_data_e.html?hlyRange=2009-12-10%7C2023-04-02&dlyRange=2010-02-02%7C2023-04-02&mlyRange=%7C&StationID=48549&Prov=ON&urlExtension=_e.html&searchType=stnName&optLimit=yearRange&StartYear=2015&EndYear=2022&selRowPerPage=25&Line=0&searchMethod=contains&Month=4&Day=2&txtStationName=Toronto+City+Centre&timeframe=1&Year=2023) provided by Toronto City Centre Weather Observatory.
 
-#### Data Summary
+#### Data Summary and General View
+
+
 
 #### Data Processing and Transformation
 
@@ -80,7 +90,7 @@ While accurate weather predictions can benefit society, there are potential ethi
 
 Jingwen (Steven) Shi: Model Building, Develop Training and Accuracy Function
 
-Hongsheng Zhong: Graph Generation, Debug
+Hongsheng Zhong: Graph Generation, Data Analysis and Summary
 
 Hangjian Zhang: Data Processing and Transformation
 
