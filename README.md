@@ -98,10 +98,10 @@ While accurate weather predictions can benefit society, there are potential ethi
 
 ## Authors
 
-Jingwen (Steven) Shi: Model Building, Develop Training and Accuracy Function
+Jingwen (Steven) Shi: Model Building, Report Writing
 
 Hongsheng Zhong: Graph Generation, Data Analysis and Summary
 
 Hangjian Zhang: Data Processing and Transformation
 
-Xuankui Zhu: Hyperparameter Tuning, Report Writing
+Xuankui Zhu: Hyperparameter Tuning, Develop Training and Accuracy Function
