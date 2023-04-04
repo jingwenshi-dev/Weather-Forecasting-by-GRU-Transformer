@@ -1,4 +1,4 @@
-# Weather Forecast Model in Great Toronto Area by using GRU 
+# Weather Forecast Model in Great Toronto Area by using GRU
 
 ## Introduction
 
@@ -36,9 +36,13 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 
 The data (from 2015 to 2022) comes from [Weather Canada](https://climate.weather.gc.ca/climate_data/hourly_data_e.html?hlyRange=2009-12-10%7C2023-04-02&dlyRange=2010-02-02%7C2023-04-02&mlyRange=%7C&StationID=48549&Prov=ON&urlExtension=_e.html&searchType=stnName&optLimit=yearRange&StartYear=2015&EndYear=2022&selRowPerPage=25&Line=0&searchMethod=contains&Month=4&Day=2&txtStationName=Toronto+City+Centre&timeframe=1&Year=2023) provided by Toronto City Centre Weather Observatory.
 
+
+
 #### Data Summary and General View
 
+![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/2015-2022%20Weather%20Data%20Plot.png?raw=true)
 
+![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/01-01-2015%20Weather%20Data%20Plot.png?raw=true)
 
 #### Data Processing and Transformation
 
