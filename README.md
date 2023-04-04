@@ -36,17 +36,23 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 
 The data (from 2015 to 2022) comes from [Weather Canada](https://climate.weather.gc.ca/climate_data/hourly_data_e.html?hlyRange=2009-12-10%7C2023-04-02&dlyRange=2010-02-02%7C2023-04-02&mlyRange=%7C&StationID=48549&Prov=ON&urlExtension=_e.html&searchType=stnName&optLimit=yearRange&StartYear=2015&EndYear=2022&selRowPerPage=25&Line=0&searchMethod=contains&Month=4&Day=2&txtStationName=Toronto+City+Centre&timeframe=1&Year=2023) provided by Toronto City Centre Weather Observatory.
 
-
-
 #### Data Summary and General View
 
+Summary statistics at the scale of years usually is too extensive and vague and may not help people have a understanding of what the data really means. For example, people probably does not have picture of what a 70% relative humidity and 110 kPa means.
+
+Therefore, instead of directly output the statistics such as mean, max, min, standard deviations and so on, a visual diagram can present the trend and patterns better.
+
+In the diagram below, it presents all the hourly weather data from 2015 to 2022. Upon comparing the temperature and wind speed diagrams, it is obvious that as the maximum wind speed increases, the temperature decreases as expected. Also, by observing the station pressure diagram, the pressure starts fluctuate when temperatures drop and trends to be more stable in a range when temperature rises. Additionally, the minimum relative humidity demonstrates periodic decreases in correlation with temperature, albeit with approximately one season's time difference.
+
 ![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/2015-2022%20GTA%20Weather%20Data%20Plot.png?raw=true)
+
+Example of hourly weather data on Jan 01, 2015:
 
 ![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/01-01-2015%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
 #### Data Processing and Transformation
 
-Since some of the data is missing, the missing value will be filled with the average of the two hours before and after. if more than four consecutive hours of data are missing, the entire row will be dropped from the dataset. This is because if those data which filled with the average are fed to the model, then the model might lose some of the variability and will be more likely output a sequence of same prediction and is does not generalize well to the real situation.
+Since some of the data is missing, the missing value will be replaced with the average of the two hours preceding and following the missing data point. If more than four consecutive hours of data are missing, the entire row will be dropped from the dataset. This is because if those data which filled with the average are fed to the model, then the model might lose some of the variability and will be more likely output a sequence of same prediction and is does not generalize well to the real situation.
 
 #### Data Split
 
