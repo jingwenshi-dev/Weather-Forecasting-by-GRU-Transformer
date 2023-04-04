@@ -40,9 +40,9 @@ The data (from 2015 to 2022) comes from [Weather Canada](https://climate.weather
 
 #### Data Summary and General View
 
-![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/2015-2022%20Weather%20Data%20Plot.png?raw=true)
+![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/2015-2022%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
-![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/01-01-2015%20Weather%20Data%20Plot.png?raw=true)
+![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/01-01-2015%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
 #### Data Processing and Transformation
 
