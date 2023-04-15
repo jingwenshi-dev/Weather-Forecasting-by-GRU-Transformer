@@ -79,19 +79,25 @@ The dataset is split by years in order to contain all the variability and possib
 
 #### Training Curve
 
-Overfit Model:
+##### Overfit Model:
+
+For testing the capability and correctness of the model with a small dataset.
+
+Training Curve:
 
 ![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Overfit%20Total%20Learning%20Curve.png?raw=true)
 
-Final Total Training Curve
+##### Final Model:
 
-![Final Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Final%20Total%20Learning%20Curve.png?raw=true)
+First Epoch Training Curve & Batch Learning Curve:
 
-First Epoch Learning Curve:
-
-![First Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/First%20Total%20Learning%20Curve.png?raw=true)
+![First Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/First%20Total%20Learning%20Curve.png?raw=true)![First Batch Learning Curve](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/First%20Batch%20Learning%20Curve.png?raw=true)
 
 
+
+Final Training Curve & Final Batch Learning Curve:
+
+![Final Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Final%20Total%20Learning%20Curve.png?raw=true)![Final Batch Learning Curve](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Final%20Batch%20Learning%20Curve.png?raw=true)
 
 
 
