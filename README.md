@@ -18,7 +18,7 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 
 -   Input size (input_size)
     -   The number of features for each piece of the data. In this project, it will be 6.
-        -   i.e. Temperature (Temp), Relative Humidity (Rel Hum), Precipitation Amount (Precip Amount), Wind Speed (Wind Spd), Station Pressure (Stn Press).
+        -   i.e. Temperature (Temp), Dew Point Temp (°C), Relative Humidity (Rel Hum), Precipitation Amount (Precip Amount), Wind Speed (Wind Spd), Station Pressure (Stn Press).
 -   Hidden size (hidden_size)
     -   The number of hidden units in each GRU which determines the capacity of the model of capturing data patterns.
 -   Output size (output_size)
