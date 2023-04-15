@@ -40,9 +40,18 @@ The data (from 2015 to 2022) comes from [Weather Canada](https://climate.weather
 
 Summary statistics at the scale of years usually is too extensive and vague and may not help people have a understanding of what the data really means. For example, people probably does not have picture of what a 70% relative humidity and 110 kPa means.
 
+|      Variables      | Sample Mean | Standard Division |
+| :-----------------: | :---------: | :---------------: |
+|      Temp (°C)      |  9.105228   |     10.167671     |
+| Dew Point Temp (°C) |  4.229453   |     10.443530     |
+|     Rel Hum (%)     |  72.933690  |     15.008117     |
+| Precip. Amount (mm) |  0.088654   |     0.768895      |
+|   Wind Spd (km/h)   |  17.225652  |     10.397769     |
+|   Stn Press (kPa)   | 100.730966  |     0.790242      |
+
 Therefore, instead of directly output the statistics such as mean, max, min, standard deviations and so on, a visual diagram can present the trend and patterns better.
 
-In the diagram below, it presents all the hourly weather data from 2015 to 2022. Upon comparing the temperature and wind speed diagrams, it is obvious that as the maximum wind speed increases, the temperature decreases as expected. Also, by observing the station pressure diagram, the pressure starts fluctuate when temperatures drop and trends to be more stable in a range when temperature rises. Additionally, the minimum relative humidity demonstrates periodic decreases in correlation with temperature, albeit with approximately one season's time difference.
+In the diagram below, it presents all the hourly weather data from 2015 to 2022. Upon comparing the temperature and wind speed diagrams, it is obvious that as the maximum wind speed increases, the temperature decreases as expected. Also, by observing the station pressure diagram, the pressure starts to fluctuate when temperatures drop and tend to be more stable in a range when the temperature rises. Additionally, the minimum relative humidity demonstrates periodic decreases in correlation with temperature, albeit with approximately one season's time difference.
 
 ![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/2015-2022%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
@@ -58,13 +67,13 @@ Since some of the data is missing, the missing value will be replaced with the a
 
 The dataset is split by years in order to contain all the variability and possibility of the weather condition for four seasons.
 
--   Training Set: Year 2015 to 2019. 
+- Training Set: Year 2015 to 2019. 
 
--   Validation Set: Year 2020 to 2021.
+- Validation Set: Year 2020 to 2021.
 
--   Test Set: Year 2022.
+- Test Set: Year 2022.
 
-    
+  
 
 ## Training
 
