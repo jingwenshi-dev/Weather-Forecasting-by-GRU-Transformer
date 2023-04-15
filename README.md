@@ -17,7 +17,7 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 #### Parameters
 
 -   Input size (input_size)
-    -   The number of features for each piece of the data. In this project, it will be 5.
+    -   The number of features for each piece of the data. In this project, it will be 6.
         -   i.e. Temperature (Temp), Relative Humidity (Rel Hum), Precipitation Amount (Precip Amount), Wind Speed (Wind Spd), Station Pressure (Stn Press).
 -   Hidden size (hidden_size)
     -   The number of hidden units in each GRU which determines the capacity of the model of capturing data patterns.
@@ -53,11 +53,11 @@ Therefore, instead of directly output the statistics such as mean, max, min, sta
 
 In the diagram below, it presents all the hourly weather data from 2015 to 2022. Upon comparing the temperature and wind speed diagrams, it is obvious that as the maximum wind speed increases, the temperature decreases as expected. Also, by observing the station pressure diagram, the pressure starts to fluctuate when temperatures drop and tend to be more stable in a range when the temperature rises. Additionally, the minimum relative humidity demonstrates periodic decreases in correlation with temperature, albeit with approximately one season's time difference.
 
-![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/2015-2022%20GTA%20Weather%20Data%20Plot.png?raw=true)
+![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/2015-2022%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
 Example of hourly weather data on Jan 01, 2015:
 
-![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/01-01-2015%20GTA%20Weather%20Data%20Plot.png?raw=true)
+![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/01-01-2015%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
 #### Data Processing and Transformation
 
@@ -79,9 +79,43 @@ The dataset is split by years in order to contain all the variability and possib
 
 #### Training Curve
 
+##### Overfit Model:
+
+For testing the capability and correctness of the model with a small dataset.
+
+Training Curve:
+
+![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Overfit%20Total%20Learning%20Curve.png?raw=true)
+
+##### Final Model:
+
+First Epoch Training Curve & Batch Learning Curve:
+
+![First Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/First%20Total%20Learning%20Curve.png?raw=true)![First Batch Learning Curve](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/First%20Batch%20Learning%20Curve.png?raw=true)
 
 
-#### Hyperparamter Tuning
+
+Final Training Curve & Final Batch Learning Curve:
+
+![Final Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Final%20Total%20Learning%20Curve.png?raw=true)![Final Batch Learning Curve](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Final%20Batch%20Learning%20Curve.png?raw=true)
+
+
+
+#### Hyperparameters Tuning
+
+Batch Size:
+
+- The batch size is set to 512 to improve GPU utilization and more concurrency. Although bigger batch size may lead to limited exploration and less frequent updating weights, 512 is around 1.12% of the training set, which is considered a "small" batch size.
+
+Learning Rate:
+
+Momentum:
+
+Weight Decay:
+
+Number of Epochs:
+
+Number of Hidden Layers:
 
 
 
@@ -107,10 +141,10 @@ While accurate weather predictions can benefit society, there are potential ethi
 
 ## Authors
 
-Jingwen (Steven) Shi: Model Building, Report Writing
+Jingwen (Steven) Shi: Model Building & Decising, Model Training, Hyperparameters Tuning, Result Displaying, Graph Generation, Report Writing
 
-Hongsheng Zhong: Graph Generation, Data Analysis and Summary
+Hongsheng Zhong: Data Processing & Normalization, Loss Function, Debug
 
-Hangjian Zhang: Data Processing and Transformation
+Hangjian Zhang: Preprocess Data
 
-Xuankui Zhu: Hyperparameter Tuning, Develop Training and Accuracy Function
+Xuankui Zhu: Scaler Research
