@@ -139,9 +139,21 @@ Total Learning Curve:
 
 ### Regularization
 
-Weight Decay: Please refer to Hyperparameters Tuning
+#### Weight Decay:
 
-Early Stopping:
+Please refer to Hyperparameters Tuning
+
+#### Early Stopping:
+
+The model is stopped at epoch #16 since the learning curve at epochs 17 and 18 started to oscillate which indicates the model converged and might start to overfit in the future.
+
+##### #17 Epoch Learning Curve:
+
+![Epoch17 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch17%20Learning%20Curve.png?raw=true)
+
+##### #18 Epoch Learning Curve:
+
+![Epoch18 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch18%20Learning%20Curve.png?raw=true)
 
 ### Hyperparameters Tuning
 
