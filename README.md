@@ -6,15 +6,13 @@ The objective of this project is to develop a Gated Recurrent Unit (GRU) model t
 
 GRU is a variation of the Recurrent Neural Network (RNN) and Long Short-Term Memory (LSTM) model. In comparison to RNN, GRU mitigates the issues of gradient explosion and vanishing, while being generally consider as more computationly efficient than LSTM, without effecting the performance too much. Therefore, GRU has been chosen for this project instead of LSTM.
 
+# Model
 
-
-## Model
-
-#### Model Visualization
+### Model Visualization
 
 As a variation of RNN, when a sequence of time series data is fed into the model, GRU uses the previous hidden state and the new input to predict a new output and new hidden state. The update gate decides how much past information should be passed to the next iteration while the reset gate determines how much past information should be forgotten. 
 
-#### Parameters
+### Parameters
 
 -   Input size (input_size)
     -   The number of features for each piece of the data. In this project, it will be 6.
@@ -28,15 +26,13 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 
 #### Examples
 
+# Data
 
-
-## Data
-
-#### Data Source
+### Data Source
 
 The data (from 2015 to 2022) comes from [Weather Canada](https://climate.weather.gc.ca/climate_data/hourly_data_e.html?hlyRange=2009-12-10%7C2023-04-02&dlyRange=2010-02-02%7C2023-04-02&mlyRange=%7C&StationID=48549&Prov=ON&urlExtension=_e.html&searchType=stnName&optLimit=yearRange&StartYear=2015&EndYear=2022&selRowPerPage=25&Line=0&searchMethod=contains&Month=4&Day=2&txtStationName=Toronto+City+Centre&timeframe=1&Year=2023) provided by Toronto City Centre Weather Observatory.
 
-#### Data Summary and General View
+### Data Summary and General View
 
 Summary statistics at the scale of years usually is too extensive and vague and may not help people have a understanding of what the data really means. For example, people probably does not have picture of what a 70% relative humidity and 110 kPa means.
 
@@ -59,11 +55,11 @@ Example of hourly weather data on Jan 01, 2015:
 
 ![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/01-01-2015%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
-#### Data Processing and Transformation
+### Data Processing and Transformation
 
 Since some of the data is missing, the missing value will be replaced with the average of the two hours preceding and following the missing data point. If more than four consecutive hours of data are missing, the entire row will be dropped from the dataset. This is because if those data which filled with the average are fed to the model, then the model might lose some of the variability and will be more likely output a sequence of same prediction and is does not generalize well to the real situation.
 
-#### Data Split
+### Data Split
 
 The dataset is split by years in order to contain all the variability and possibility of the weather condition for four seasons.
 
@@ -75,33 +71,79 @@ The dataset is split by years in order to contain all the variability and possib
 
   
 
-## Training
+# Training
 
-#### Training Curve
+### Training Curve
 
-##### Overfit Model:
+#### Overfit Model:
 
-For testing the capability and correctness of the model with a small dataset.
+> For testing the capability and correctness of the model with a small dataset.
 
-Training Curve:
+##### Batch Learning Curve:
 
-![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Overfit%20Total%20Learning%20Curve.png?raw=true)
+> The loss of batch prediction with respect to its target.
 
-##### Final Model:
+![Overfit Batch Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Overfit%20Batch%20Learning%20Curve.png?raw=true)
 
-First Epoch Training Curve & Batch Learning Curve:
+##### Total Learning Curve:
 
-![First Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/First%20Total%20Learning%20Curve.png?raw=true)![First Batch Learning Curve](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/First%20Batch%20Learning%20Curve.png?raw=true)
+> The loss of the whole validation set prediction with respect to its target since the first iteration.
 
+![Overfit Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Overfit%20Total%20Learning%20Curve.png?raw=true)
 
+#### Final Model:
 
-Final Training Curve & Final Batch Learning Curve:
+###### Note:
 
-![Final Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Final%20Total%20Learning%20Curve.png?raw=true)![Final Batch Learning Curve](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Final%20Batch%20Learning%20Curve.png?raw=true)
+###### Since the model's loss is relatively high at the beginning and the graph of total loss will squeeze altogether. Therefore, the training curves are separated into epochs for better presentation.  #0 Epoch is not represented since the y-axis varies from loss 1.4 to 0.2 and the graph is squeezed altogether.
 
+##### #1 Epoch
 
+Batch Learning Curve:
 
-#### Hyperparameters Tuning
+> The loss of batch prediction with respect to its target.
+
+![Epoch1 Batch Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch1%20Batch%20Learning%20Curve.png?raw=true)
+
+Epoch Learning Curve:
+
+> The loss of the whole validation set prediction with respect to its target at the current epoch. It is the last subgraph (i.e. the tail) of the Total Learning Curve to visualize the gap between validation loss and training loss better.
+
+![Epoch1 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch1%20Learning%20Curve.png?raw=true)
+
+Total Learning Curve:
+
+> The loss of the whole validation set prediction with respect to its target since the first iteration.
+
+![Epoch1 Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch1%20Total%20Learning%20Curve.png?raw=true)
+
+##### #16 Epoch:
+
+Batch Learning Curve:
+
+> The loss of batch prediction with respect to its target.
+
+![Epoch16 Batch Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch16%20Batch%20Learning%20Curve.png?raw=true)
+
+Epoch Learning Curve:
+
+> The loss of the whole validation set prediction with respect to its target at the current epoch. It is the last subgraph (i.e. the tail) of the Total Learning Curve to visualize the gap between validation loss and training loss better.
+
+![Epoch16 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch16%20Learning%20Curve.png?raw=true)
+
+Total Learning Curve:
+
+> The loss of the whole validation set prediction with respect to its target since the first iteration.
+
+![Epoch16 Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch16%20Total%20Learning%20Curve.png?raw=true)
+
+### Regularization
+
+Weight Decay: Please refer to Hyperparameters Tuning
+
+Early Stopping:
+
+### Hyperparameters Tuning
 
 Batch Size:
 
@@ -117,34 +159,24 @@ Number of Epochs:
 
 Number of Hidden Layers:
 
+# Result
 
+### Quantitative Measures
 
-## Result
+### Quantitative and Qualitative Results
 
-#### Quantitative Measures
+### Justification of Results
 
-
-
-#### Quantitative and Qualitative Results
-
-
-
-#### Justification of Results
-
-
-
-## Ethical Consideration
+# Ethical Consideration
 
 While accurate weather predictions can benefit society, there are potential ethical implications to consider. The model's predictions may disproportionately impact specific groups, such as farmers, who rely heavily on accurate weather forecasts for their livelihoods. If the model's predictions are less accurate for specific regions or time periods, it could lead to negative consequences for these communities. Moreover, the potential misuse of the model by bad actors may lead to the dissemination of false (e.g. extreme weather conditions), causing panic or confusion. Ensuring the model's robustness, accuracy, and fairness across various regions and population groups is crucial to mitigate these ethical concerns.
 
+# Authors
 
+Jingwen (Steven) Shi: GRU Building & Deciding, GRU Training, GRU Hyperparameters Tuning, Result Displaying, Graph Generation, Report Writing
 
-## Authors
+Hongsheng Zhong: Data Processing & Normalization, Input and Target Separation, Loss Function, Debug
 
-Jingwen (Steven) Shi: Model Building & Decising, Model Training, Hyperparameters Tuning, Result Displaying, Graph Generation, Report Writing
-
-Hongsheng Zhong: Data Processing & Normalization, Loss Function, Debug
-
-Hangjian Zhang: Preprocess Data
+Hangjian Zhang: Transformer Building & Deciding, Transformer Training, Transformer Hyperparameters Tuning
 
 Xuankui Zhu: Scaler Research
