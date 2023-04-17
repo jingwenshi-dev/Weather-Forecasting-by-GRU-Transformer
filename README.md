@@ -26,7 +26,15 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 -   Number of layers (num_layers)
     -   The number of GRU layers in the model. The more the layer, the more complex patterns the model can learn.
 
-#### Examples
+### Examples
+
+Successful Example on Final GRU Model:
+
+![Training Example 2.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Training%20Example%202.png?raw=true)
+
+Unsuccessful Example on Final GRU Model:
+
+![Training Example 1.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Training%20Example%201.png?raw=true)
 
 # Data
 
