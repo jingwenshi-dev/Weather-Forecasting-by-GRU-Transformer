@@ -28,11 +28,11 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 
 ### Examples
 
-Successful Example on Final GRU Model:
+Successful Example on Final GRU Model (1540th to 1564th Hour):
 
 ![Training Example 2.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Training%20Example%202.png?raw=true)
 
-Unsuccessful Example on Final GRU Model:
+Unsuccessful Example on Final GRU Model (7750th to 7780th Hour):
 
 ![Training Example 1.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Training%20Example%201.png?raw=true)
 
