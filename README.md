@@ -145,7 +145,7 @@ Total Learning Curve:
 
 #### Weight Decay:
 
-Please refer to [Hyperparameters Tuning](#Hyperparameters Tuning).
+Please refer to [Hyperparameters Tuning](#Hyperparameters-Tuning).
 
 #### Early Stopping:
 
