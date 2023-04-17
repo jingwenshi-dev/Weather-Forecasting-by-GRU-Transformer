@@ -157,11 +157,17 @@ The model is stopped at epoch #16 since the learning curve at epochs 17 and 18 s
 
 ### Hyperparameters Tuning
 
-Batch Size:
+Batch Size: 512
 
 - The batch size is set to 512 to improve GPU utilization and more concurrency. Although bigger batch size may lead to limited exploration and less frequent updating weights, 512 is around 1.12% of the training set, which is considered a "small" batch size.
 
-Learning Rate:
+Learning Rate: 0.001
+
+- Although the loss on the graph of learning curve seems indicating the learning rate is high. The actual performance of a lower learning rate makes the model's performance worse although it can generate more .
+
+  ![img](https://i.stack.imgur.com/iMASu.jpg)
+
+![Partial Predictions ckpt 1428.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Partial%20Predictions%20ckpt%201428.png?raw=true)
 
 Momentum:
 
