@@ -1,4 +1,4 @@
-# Weather Forecast Model in Great Toronto Area by using GRU and Transformer
+# Weather Forecast Model in Great Toronto Area by using GRU vs. Transformer
 
 ## Introduction
 
@@ -6,9 +6,13 @@ The objective of this project is to develop a Gated Recurrent Unit (GRU) model t
 
 GRU is a variation of the Recurrent Neural Network (RNN) and Long Short-Term Memory (LSTM) model. In comparison to RNN, GRU mitigates the issues of gradient explosion and vanishing, while being generally consider as more computationly efficient than LSTM, without effecting the performance too much. Therefore, GRU has been chosen for this project instead of LSTM.
 
-# Model
+# GRU Model
 
-###### Note: For different versions of the GRU model and recorded weights, please refer to corresponding branches on GitHub.
+###### Important Notes!!!
+
+###### For [Transformer](#Transformer-Model) please refer to the last sections (the results show that Transformer is way more accurate than GRU on test set).
+
+###### For different versions of the GRU model and recorded weights, please refer to corresponding branches on GitHub.
 
 ### Model Visualization
 
@@ -16,14 +20,14 @@ As a variation of RNN, when a sequence of time series data is fed into the model
 
 ### Parameters
 
--   Input size (input_size)
+-   Input size
     -   The number of features for each piece of the data. In this project, it will be 6.
         -   i.e. Temperature (Temp), Dew Point Temp (°C), Relative Humidity (Rel Hum), Precipitation Amount (Precip Amount), Wind Speed (Wind Spd), Station Pressure (Stn Press).
--   Hidden size (hidden_size)
+-   Hidden size (Please refer to [Hyperparameters Tuning](#Hyperparameters-Tuning))
     -   The number of hidden units in each GRU which determines the capacity of the model of capturing data patterns.
--   Output size (output_size)
+-   Output size
     -   The number of predictions. In the case of predicting the next 24 hours of data, the output size is 24.
--   Number of layers (num_layers)
+-   Number of layers (Please refer to [Hyperparameters Tuning](#Hyperparameters-Tuning))
     -   The number of GRU layers in the model. The more the layer, the more complex patterns the model can learn.
 
 ### Examples
@@ -81,7 +85,6 @@ The dataset is split by years in order to contain all the variability and possib
 
 - Test Set: Year 2022.
 
-  
 
 # Training
 
@@ -295,6 +298,10 @@ The reason why the model is predicting the overall trend well:
    - Station pressure will affect the movement of air masses, which is an indirect variable of weather patterns and temperature trends.
 
    By incorporating these variables, the model can learn complex dependencies between different weather factors and accurately predict overall temperature trends.
+
+# Transformer Model
+
+
 
 # Ethical Consideration
 
