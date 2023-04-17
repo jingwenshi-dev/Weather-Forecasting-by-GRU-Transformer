@@ -1,4 +1,4 @@
-# Weather Forecast Model in Great Toronto Area by using GRU
+# Weather Forecast Model in Great Toronto Area by using GRU and Transformer
 
 ## Introduction
 
@@ -215,11 +215,55 @@ As a common practice, the number of hidden units between the input and output la
 
 # Result
 
+###### Note: The results below based normalized data set in order to compare with different models and more advanced model on the internet. Previous section has a detailed sub-graph. Here we present only the graph of predicted vs. actual temperature in 2022.
+
 ### Quantitative Measures
 
-### Quantitative and Qualitative Results
+The method of quantitative measures includes comparing the loss, predicted mean and standard deviation.
+
+### Quantitative and Qualitative Results (rounded)
+
+| Normalized Loss (Normalized MSE) | Predicted Sample Mean | Predicted Standard Deviation | Target Sample Mean | Target Standard Deviation |
+| -------------------------------- | --------------------- | ---------------------------- | ------------------ | ------------------------- |
+| 0.06999                          | -0.1023               | 0.9618                       | -0.0683            | 0.9942                    |
+
+##### Quantitative:
+
+The overall performance of the model can be quantitatively examined by the loss or the MSE, which is around 0.0699. It represents the residual error of the model. Since the data set is normalized, the loss should be between 0 to 1. The lower the loss if better and 0 represents a perfect match between predictions and targets.
+
+The model's predicted sample mean is -0.1023, while the target sample mean is -0.0683. The difference between the two means is 0.034, which indicates that the model's predictions are, on average, slightly lower than the target values.
+
+The predicted standard deviation is 0.9618, while the target standard deviation is 0.9942. The difference between the two is 0.0324, which indicates that the model's predictions are slightly less spread out than the target values.
+
+##### Qualitative:
+
+Overall, the model's performance can be considered as moderate and did not lose variability. While the MSE of the model is relatively low, there are still some differences between the predicted and target sample means. The model tends to predict slightly lower values than the actual target values, as the predicted sample mean (-0.1023) is lower than the target sample mean (-0.0683) as the graph below shows.
+
+![Total Precitions.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Total%20Precitions.png?raw=true)
+
+In the graph above, it is clear that the model predicts the overall trend of the temperature pretty well, especially when the temperature rises relatively steadily. However, it does not predict sudden changes in temperature well. 
 
 ### Justification of Results
+
+The challenges in predicting sudden changes in temperature, as mentioned above, can be attributed to several factors:
+
+1. Limited Training Set:
+
+   The available training data spans only five years (2015-2019) due to computational constraints, as it takes 10 minutes to train an epoch and 3 hours to train the entire model. This limited dataset might not be sufficient to capture complex patterns in weather temperature.
+
+2. Complex Factors Dependence:
+
+   Weather is influenced by various factors, including the features selected for this study. These factors might interact in intricate ways, making it challenging for the GRU model to capture all underlying dependencies.
+
+3. Uncertainty of Chaotic System:
+
+   Weather prediction is inherently uncertain due to the chaotic nature of the Earth's atmosphere. Capturing all patterns of this chaotic system is simply not possible, and the butterfly effect might significantly influence the final results.
+
+4. Short-Term Memory:
+
+   While GRU models are designed to address the vanishing and exploding gradient problems, they might still struggle to capture very long-term dependencies or rapid changes in the data. The butterfly effect was not considered when building the model, so it might be beneficial to use a model that can capture longer patterns since "a small change in one state of a deterministic nonlinear system can result in large differences in a later state." ([Wikipedia](https://en.wikipedia.org/wiki/Butterfly_effect))
+
+
 
 # Ethical Consideration
 
