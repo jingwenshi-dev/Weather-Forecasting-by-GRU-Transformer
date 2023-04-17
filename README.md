@@ -51,11 +51,11 @@ Therefore, instead of directly output the statistics such as mean, max, min, sta
 
 In the diagram below, it presents all the hourly weather data from 2015 to 2022. Upon comparing the temperature and wind speed diagrams, it is obvious that as the maximum wind speed increases, the temperature decreases as expected. Also, by observing the station pressure diagram, the pressure starts to fluctuate when temperatures drop and tend to be more stable in a range when the temperature rises. Additionally, the minimum relative humidity demonstrates periodic decreases in correlation with temperature, albeit with approximately one season's time difference.
 
-![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/2015-2022%20GTA%20Weather%20Data%20Plot.png?raw=true)
+![2015-2022 GTA Weather Data Plot.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/2015-2022%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
 Example of hourly weather data on Jan 01, 2015:
 
-![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/01-01-2015%20GTA%20Weather%20Data%20Plot.png?raw=true)
+![01-01-2015 GTA Weather Data Plot.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/01-01-2015%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
 ### Data Processing, Transformation and Augmentation
 
@@ -87,13 +87,13 @@ The dataset is split by years in order to contain all the variability and possib
 
 > The loss of batch prediction with respect to its target.
 
-![Overfit Batch Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Overfit%20Batch%20Learning%20Curve.png?raw=true)
+![Overfit Batch Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Overfit%20Batch%20Learning%20Curve.png?raw=true)
 
 ##### Total Learning Curve:
 
 > The loss of the whole validation set prediction with respect to its target since the first iteration.
 
-![Overfit Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Overfit%20Total%20Learning%20Curve.png?raw=true)
+![Overfit Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Overfit%20Total%20Learning%20Curve.png?raw=true)
 
 #### Final Model:
 
@@ -107,19 +107,19 @@ Batch Learning Curve:
 
 > The loss of batch prediction with respect to its target.
 
-![Epoch1 Batch Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch1%20Batch%20Learning%20Curve.png?raw=true)
+![Epoch1 Batch Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Epoch1%20Batch%20Learning%20Curve.png?raw=true)
 
 Epoch Learning Curve:
 
 > The loss of the whole validation set prediction with respect to its target at the current epoch. It is the last subgraph (i.e. the tail) of the Total Learning Curve to visualize the gap between validation loss and training loss better.
 
-![Epoch1 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch1%20Learning%20Curve.png?raw=true)
+![Epoch1 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Epoch1%20Learning%20Curve.png?raw=true)
 
 Total Learning Curve:
 
 > The loss of the whole validation set prediction with respect to its target since the first iteration.
 
-![Epoch1 Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch1%20Total%20Learning%20Curve.png?raw=true)
+![Epoch1 Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Epoch1%20Total%20Learning%20Curve.png?raw=true)
 
 ##### #16 Epoch:
 
@@ -127,19 +127,19 @@ Batch Learning Curve:
 
 > The loss of batch prediction with respect to its target.
 
-![Epoch16 Batch Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch16%20Batch%20Learning%20Curve.png?raw=true)
+![Epoch16 Batch Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Epoch16%20Batch%20Learning%20Curve.png?raw=true)
 
 Epoch Learning Curve:
 
 > The loss of the whole validation set prediction with respect to its target at the current epoch. It is the last subgraph (i.e. the tail) of the Total Learning Curve to visualize the gap between validation loss and training loss better.
 
-![Epoch16 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch16%20Learning%20Curve.png?raw=true)
+![Epoch16 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Epoch16%20Learning%20Curve.png?raw=true)
 
 Total Learning Curve:
 
 > The loss of the whole validation set prediction with respect to its target since the first iteration.
 
-![Epoch16 Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch16%20Total%20Learning%20Curve.png?raw=true)
+![Epoch16 Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Epoch16%20Total%20Learning%20Curve.png?raw=true)
 
 ### Regularization
 
@@ -153,11 +153,11 @@ The model is stopped at epoch #16 since the learning curve at epochs 17 and 18 s
 
 ##### #17 Epoch Learning Curve:
 
-![Epoch17 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch17%20Learning%20Curve.png?raw=true)
+![Epoch17 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Epoch17%20Learning%20Curve.png?raw=true)
 
 ##### #18 Epoch Learning Curve:
 
-![Epoch18 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Epoch18%20Learning%20Curve.png?raw=true)
+![Epoch18 Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Epoch18%20Learning%20Curve.png?raw=true)
 
 ### Hyperparameters Tuning
 
@@ -165,7 +165,7 @@ The model is stopped at epoch #16 since the learning curve at epochs 17 and 18 s
 
 Graph of Partial Predictions of Final Model (used for comparisons to the graphs in this section).
 
-![Partial Predictions ckpt 1428.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Partial%20Predictions%20ckpt%201428.png?raw=true)
+![Partial Predictions ckpt 1428.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Partial%20Predictions%20ckpt%201428.png?raw=true)
 
 #### Batch Size: 512
 
@@ -179,9 +179,9 @@ Although the loss on the graph of learning curve seems indicating the learning r
 
 While keeping all other hyperparameters unchanged, the graph below used 0.0001 as the learning rate. Clearly, although the model predicted more details (i.e. the peaks and valleys) and the learning curve looks good, the general trend does not fit with the target.
 
-![LR 0.0001 Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/LR%200.0001%20Total%20Learning%20Curve.png?raw=true)
+![LR 0.0001 Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/LR%200.0001%20Total%20Learning%20Curve.png?raw=true)
 
-![Partial Predictions LR 0.0001.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Partial%20Predictions%20LR%200.0001.png?raw=true)
+![Partial Predictions LR 0.0001.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Partial%20Predictions%20LR%200.0001.png?raw=true)
 
 #### Momentum: 0.9
 
@@ -241,7 +241,7 @@ The predicted standard deviation is 0.9618, while the target standard deviation 
 
 Overall, the model's performance can be considered as moderate and did not lose variability. While the MSE of the model is relatively low, there are still some differences between the predicted and target sample means. The model tends to predict slightly lower values than the actual target values, as the predicted sample mean (-0.1023) is lower than the target sample mean (-0.0683) as the graph below shows.
 
-![Total Precitions.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Total%20Precitions.png?raw=true)
+![Total Precitions.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/GRU/Images/Total%20Precitions.png?raw=true)
 
 In the graph above, it is clear that the model predicts the overall trend of the temperature pretty well, especially when the temperature rises relatively steadily. However, it does not predict sudden changes in temperature well. 
 
