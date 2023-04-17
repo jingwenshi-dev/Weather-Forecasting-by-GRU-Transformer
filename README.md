@@ -141,7 +141,7 @@ Total Learning Curve:
 
 #### Weight Decay:
 
-Please refer to Hyperparameters Tuning
+Please refer to Hyperparameters Tuning.
 
 #### Early Stopping:
 
@@ -157,25 +157,41 @@ The model is stopped at epoch #16 since the learning curve at epochs 17 and 18 s
 
 ### Hyperparameters Tuning
 
-Batch Size: 512
-
-- The batch size is set to 512 to improve GPU utilization and more concurrency. Although bigger batch size may lead to limited exploration and less frequent updating weights, 512 is around 1.12% of the training set, which is considered a "small" batch size.
-
-Learning Rate: 0.001
-
-- Although the loss on the graph of learning curve seems indicating the learning rate is high. The actual performance of a lower learning rate makes the model's performance worse although it can generate more .
-
-  ![img](https://i.stack.imgur.com/iMASu.jpg)
+Graph of Partial Predictions of Final Model (used for comparisons to the graphs in this section).
 
 ![Partial Predictions ckpt 1428.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Partial%20Predictions%20ckpt%201428.png?raw=true)
 
-Momentum:
+#### Batch Size: 512
 
-Weight Decay:
+- The batch size is set to 512 to improve GPU utilization and more concurrency. Although bigger batch size may lead to limited exploration and less frequent updating weights, 512 is around 1.12% of the training set, which is considered a "small" batch size.
 
-Number of Epochs:
+#### Learning Rate: 0.001
 
-Number of Hidden Layers:
+Although the loss on the graph of learning curve seems indicating the learning rate is high. The actual performance of a lower learning rate makes the model's performance worse although it can generate more .
+
+![img](https://i.stack.imgur.com/iMASu.jpg)
+
+While keeping all other hyperparameters unchanged, the graph below used 0.0001 as the learning rate. Clearly, although the model predicted more details (i.e. the peaks and valleys), the general trend does not fit with the target.
+
+![Partial Predictions LR 0.0001.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Partial%20Predictions%20LR%200.0001.png?raw=true)
+
+#### Momentum: 0.9
+
+A momentum of 0.9 with a 0.001 learning rate is generally good with Adam optimizer. It is the empirical results from previous research and experimentation. Indeed, among lots of learning rate and momentum combinations tested so far in the project, a learning rate of 0.001 with 0.9 momentum is the best combination, which produces the best performance and generalizes best to the test set.
+
+#### Weight Decay: 0.0001
+
+The graph below shows a partial prediction with no weight decay.
+
+![Partial Predictions.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/GRU-v1.2/Images/Partial%20Predictions.png?raw=true)
+
+#### Number of Epochs: 16
+
+The final model and weight is selected at the end of epoch number 16 in order to prevent overfit. Please refer to [regularization](#Regularization).
+
+#### Number of Hidden Layers:
+
+
 
 # Result
 
@@ -195,6 +211,6 @@ Jingwen (Steven) Shi: GRU Building & Deciding, GRU Training, GRU Hyperparameters
 
 Hongsheng Zhong: Data Processing & Normalization, Input and Target Separation, Loss Function, Debug
 
-Hangjian Zhang: Transformer Building & Deciding, Transformer Training, Transformer Hyperparameters Tuning
+Xingjian Zhang: Transformer Building & Deciding, Transformer Training, Transformer Hyperparameters Tuning
 
 Xuankui Zhu: Scaler Research
