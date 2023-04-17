@@ -8,6 +8,8 @@ GRU is a variation of the Recurrent Neural Network (RNN) and Long Short-Term Mem
 
 # Model
 
+###### Note: For different versions of the GRU model and recorded weights, please refer to corresponding branches on GitHub.
+
 ### Model Visualization
 
 As a variation of RNN, when a sequence of time series data is fed into the model, GRU uses the previous hidden state and the new input to predict a new output and new hidden state. The update gate decides how much past information should be passed to the next iteration while the reset gate determines how much past information should be forgotten. 
@@ -55,9 +57,11 @@ Example of hourly weather data on Jan 01, 2015:
 
 ![plot](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/01-01-2015%20GTA%20Weather%20Data%20Plot.png?raw=true)
 
-### Data Processing and Transformation
+### Data Processing, Transformation and Augmentation
 
-Since some of the data is missing, the missing value will be replaced with the average of the two hours preceding and following the missing data point. If more than four consecutive hours of data are missing, the entire row will be dropped from the dataset. This is because if those data which filled with the average are fed to the model, then the model might lose some of the variability and will be more likely output a sequence of same prediction and is does not generalize well to the real situation.
+Since some of the data are missing, the missing values will be replaced with the average of the two hours preceding and following the missing data point. If more than four consecutive hours of data are missing, the entire row will be dropped from the dataset. This is because if those data which filled with the average are fed to the model, then the model might lose some of the variability and will be more likely output a sequence of the same predictions and does not generalize well to the unseen data set.
+
+In order to predict the next 24 hours temperature by the previous 3 days, the data is split into 43164 groups of continuous data with 96 data in a group. Each group's data is 1 hour later than the previous group since the step is 1.
 
 ### Data Split
 
@@ -141,7 +145,7 @@ Total Learning Curve:
 
 #### Weight Decay:
 
-Please refer to Hyperparameters Tuning.
+Please refer to [Hyperparameters Tuning](#Hyperparameters Tuning).
 
 #### Early Stopping:
 
@@ -157,13 +161,15 @@ The model is stopped at epoch #16 since the learning curve at epochs 17 and 18 s
 
 ### Hyperparameters Tuning
 
+###### Note: In this section, the results compared are selected from the models which performed not too badly. Many models which perform significantly badly will not be discussed. This section demonstrates how the hyperparameters are selected among different models which perform slightly differently.
+
 Graph of Partial Predictions of Final Model (used for comparisons to the graphs in this section).
 
 ![Partial Predictions ckpt 1428.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Partial%20Predictions%20ckpt%201428.png?raw=true)
 
 #### Batch Size: 512
 
-- The batch size is set to 512 to improve GPU utilization and more concurrency. Although bigger batch size may lead to limited exploration and less frequent updating weights, 512 is around 1.12% of the training set, which is considered a "small" batch size.
+- The batch size is set to 512 to improve GPU utilization and more concurrency. Although bigger batch size may lead to limited exploration and less frequent updating weights, 512 is around 1.12% of the augmented training set, which is considered a "small" batch size.
 
 #### Learning Rate: 0.001
 
@@ -171,27 +177,41 @@ Although the loss on the graph of learning curve seems indicating the learning r
 
 ![img](https://i.stack.imgur.com/iMASu.jpg)
 
-While keeping all other hyperparameters unchanged, the graph below used 0.0001 as the learning rate. Clearly, although the model predicted more details (i.e. the peaks and valleys), the general trend does not fit with the target.
+While keeping all other hyperparameters unchanged, the graph below used 0.0001 as the learning rate. Clearly, although the model predicted more details (i.e. the peaks and valleys) and the learning curve looks good, the general trend does not fit with the target.
+
+![LR 0.0001 Total Learning Curve.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/LR%200.0001%20Total%20Learning%20Curve.png?raw=true)
 
 ![Partial Predictions LR 0.0001.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/main/Images/Partial%20Predictions%20LR%200.0001.png?raw=true)
 
 #### Momentum: 0.9
 
-A momentum of 0.9 with a 0.001 learning rate is generally good with Adam optimizer. It is the empirical results from previous research and experimentation. Indeed, among lots of learning rate and momentum combinations tested so far in the project, a learning rate of 0.001 with 0.9 momentum is the best combination, which produces the best performance and generalizes best to the test set.
+A momentum of 0.9 with a 0.001 learning rate is generally good with Adam optimizer. It is the empirical results from previous research and experimentation. Indeed, among lots of learning rate and momentum combinations tested so far in this specific project, a learning rate of 0.001 with 0.9 momentum is the best combination, which produces the best performance and generalizes best to the test set so far.
 
 #### Weight Decay: 0.0001
 
-The graph below shows a partial prediction with no weight decay.
+The graph below shows a partial prediction with 0 weight decay, which seems to be a little bit bias and high variance.
 
 ![Partial Predictions.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/GRU-v1.2/Images/Partial%20Predictions.png?raw=true)
 
+If the weight decay is greater or equal to 0.001, the curve of the prediction graph will become more smooth but still does not generalize well on some high peak values and even gives the opposite prediction.
+
 #### Number of Epochs: 16
 
-The final model and weight is selected at the end of epoch number 16 in order to prevent overfit. Please refer to [regularization](#Regularization).
+The final model and weight is selected at the end of epoch number 16 in order to prevent overfit. Please refer to [Regularization](#Regularization).
 
-#### Number of Hidden Layers:
+#### Number of Hidden Layers: 3
 
+The two graphs presented below illustrate the predictions generated by models with 1 and 4 hidden layers. Unfortunately, the graph of the model with 2 hidden layers was not saved, and the following statement is based on recollection.
 
+However, both graphs exhibit predictions that deviate from the target, which is deemed unacceptable. Despite the absence of the graph for the model with 2 hidden layers, it is worth noting that this model performed satisfactorily. Upon closer inspection, it becomes evident that the model with 3 hidden layers currently possesses a curve that is slightly more proximal to the target.
+
+![Partial Predictions.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/GRU-v1.1/Images/Partial%20Predictions.png?raw=true)
+
+![Partial Predictions.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/GRU-v1.3/Images/Partial%20Predictions.png?raw=true)
+
+#### Number of Hidden Units: 32
+
+As a common practice, the number of hidden units between the input and output layers is typically determined based on the input and output sizes. In this regard, we conducted experiments with 64 and 32 hidden units. The results indicated that the model with 64 hidden units demonstrated a tendency towards overfitting, as evidenced by the vertical contraction of the learning curve. Consequently, this model may not generalize well to the test set. However, the model with 64 hidden units still maintained a reasonably good shape in relation to the target.
 
 # Result
 
@@ -209,8 +229,8 @@ While accurate weather predictions can benefit society, there are potential ethi
 
 Jingwen (Steven) Shi: GRU Building & Deciding, GRU Training, GRU Hyperparameters Tuning, Result Displaying, Graph Generation, Report Writing
 
-Hongsheng Zhong: Data Processing & Normalization, Input and Target Separation, Loss Function, Debug
+Hongsheng Zhong: Fundamental Coding, Data Processing, Augmentation & Normalization, Time Series Data Generation, Debug
 
 Xingjian Zhang: Transformer Building & Deciding, Transformer Training, Transformer Hyperparameters Tuning
 
-Xuankui Zhu: Scaler Research
+Xuankui Zhu: Scaler Research, Data Analysis, Topic Selection, Organization & Communication, Loss Function, Debug
