@@ -219,7 +219,9 @@ As a common practice, the number of hidden units between the input and output la
 
 ### Quantitative Measures
 
-The method of quantitative measures includes comparing the loss, predicted mean and standard deviation.
+The method of quantitative measures includes comparing the loss, predicted mean and standard deviation. 
+
+The loss can give a general picture of the performance of the mode while means show the central tendency and model's ability to accurately predict the overall level of the target values. The standard deviation shows the model's ability to capture the variability and spread of the target values.
 
 ### Quantitative and Qualitative Results (rounded)
 
@@ -263,7 +265,28 @@ The challenges in predicting sudden changes in temperature, as mentioned above, 
 
    While GRU models are designed to address the vanishing and exploding gradient problems, they might still struggle to capture very long-term dependencies or rapid changes in the data. The butterfly effect was not considered when building the model, so it might be beneficial to use a model that can capture longer patterns since "a small change in one state of a deterministic nonlinear system can result in large differences in a later state." ([Wikipedia](https://en.wikipedia.org/wiki/Butterfly_effect))
 
+The reason why the model is predicting the overall trend well:
 
+1. Model Architecture & Time Series Data:
+
+   GRU is good at capture temporal dependencies in sequential data. The model use 3 days of data to predict the following 24 hours temperature such that is can capture the correlations between
+
+2. Short Term Patterns:
+
+   The overall trend of weather temperature usually has short-term regularities (e.g. day-night cycles, seasonal variations). By using 3 days of data for prediction, the model can capture these short-term patterns such that the overall temperature trend is predicted sequence by sequence. However, as mentioned above this might be hard to predict the extreme or sudden change in the temperature.
+
+3. Feature Selection:
+
+   The selected input features for the model, including Temperature, Dew Point Temp, Relative Humidity, Precipitation Amount, Wind Speed, and Station Pressure, are suitable for predicting temperature trends as they capture various aspects of weather conditions that influence temperature changes.
+
+   - Temperature data simply provided historical trends.
+   - Dew point temperature shows the atmospheric moisture content which provides a probability of precipitation and cloud formation which affects the temperature.
+   - Relative humidity reflects the air's moisture-holding capacity and the higher the humidity, the more stable temperature is.
+   - Precipitation amount accounts reflect solar radiation affecting the earth's surface. The releasing or absorbing heat during phase changes will affect the temperature.
+   - Wind speed captures the effects of atmospheric heat redistribution.
+   - Station pressure will affect the movement of air masses, which is an indirect variable of weather patterns and temperature trends.
+
+   By incorporating these variables, the model can learn complex dependencies between different weather factors and accurately predict overall temperature trends.
 
 # Ethical Consideration
 
