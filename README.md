@@ -2,17 +2,13 @@
 
 ## Introduction
 
-The objective of this project is to develop a Gated Recurrent Unit (GRU) model to predict the following 24-hour temperature with selected hourly meteorological data obtained from Weather Canada in the Greater Toronto Area. Precise weather forecasts are crucial for a variety of industries, such as agriculture, aviation, transportation, and public safety. The model will utilize continuous hourly weather data spanning a week as input and generate a prediction for the temperature over the ensuing 24-hour period as output.
+The objective of this project is to develop a Gated Recurrent Unit (GRU) and Transformer model to predict the following 24-hour temperature with selected hourly meteorological data obtained from Weather Canada in the Greater Toronto Area. Precise weather forecasts are crucial for a variety of industries, such as agriculture, aviation, transportation, and public safety. The model will utilize continuous hourly weather data spanning a week as input and generate a prediction for the temperature over the ensuing 24-hour period as output.
 
-GRU is a variation of the Recurrent Neural Network (RNN) and Long Short-Term Memory (LSTM) model. In comparison to RNN, GRU mitigates the issues of gradient explosion and vanishing, while being generally consider as more computationly efficient than LSTM, without effecting the performance too much. Therefore, GRU has been chosen for this project instead of LSTM.
+GRU is a variation of the Recurrent Neural Network (RNN) and Long Short-Term Memory (LSTM) model. In comparison to RNN, GRU mitigates the issues of gradient explosion and vanishing, while being generally consider as more computationally efficient than LSTM, without effecting the performance too much. Therefore, GRU has been chosen for this project instead of LSTM.
+
+###### For [Transformer](#Transformer-Model) please refer to the last sections. For different versions of the GRU & Transformer models and recorded weights, please refer to corresponding branches on GitHub. The model on the main branch are the final models.
 
 # GRU Model
-
-###### Important Notes!!!
-
-###### For [Transformer](#Transformer-Model) please refer to the last sections (the results show that Transformer is way more accurate than GRU on test set).
-
-###### For different versions of the GRU model and recorded weights, please refer to corresponding branches on GitHub.
 
 ### Model Visualization
 
@@ -311,7 +307,7 @@ While accurate weather predictions can benefit society, there are potential ethi
 
 Jingwen (Steven) Shi: GRU Building & Deciding, GRU Training, GRU Hyperparameters Tuning, Result Displaying, Graph Generation, Report Writing
 
-Hongsheng Zhong: Fundamental Coding, Data Processing, Augmentation & Normalization, Time Series Data Generation, Debug
+Hongsheng Zhong: Fundamental Coding, Data Processing, Augmentation & Normalization, Time Series Data Generation, Debug, Report Writing
 
 Xingjian Zhang: Transformer Building & Deciding, Transformer Training, Transformer Hyperparameters Tuning
 
