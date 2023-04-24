@@ -297,6 +297,93 @@ The reason why the model is predicting the overall trend well:
 
 # Transformer Model
 
+## Introduction
+
+This project also considers the  Transformer model architectures for weather forecasting: Gated Recurrent Unit (GRU) and Transformer. While GRU has been commonly used in sequence-to-sequence prediction tasks, it can encounter issues with gradient explosion and vanishing due to cyclic connections. In contrast, Transformer, a neural network architecture introduced in the paper "Attention is All You Need," does not have these issues and has been shown to be effective in a variety of natural language processing tasks. Transformer is also applicable to weather forecasting and has the potential to outperform GRU in this task. Therefore, both models were evaluated, and Transformer was selected as one of the model architectures for the project.
+
+### Parameters
+
+-   Input size
+    -   The number of features for each piece of the data. In this project, it will be 6.
+        -   i.e. Temperature (Temp), Dew Point Temp (°C), Relative Humidity (Rel Hum), Precipitation Amount (Precip Amount), Wind Speed (Wind Spd), Station Pressure (Stn Press), Visibility (km), Weather condition.
+-   Output size
+    -   The number of predictions. In the case of predicting the next 24 hours of data, the output size is 24.
+
+- Number of epochs
+  - The number of epochs refers to the number of times the entire training dataset is passed through the Transformer model during training. A higher number of epochs can help the model to learn more complex patterns in the data and improve the accuracy of predictions. However, training for too many epochs can lead to overfitting, where the model becomes too specialized to the training data and performs poorly on new, unseen data.
+- Hidden size:
+  - The number of hidden units in the self-attention and feedforward layers. This determines the capacity of the model of capturing data patterns.
+- Number of layers:
+  - The number of Transformer layers in the model. The more the layers, the more complex patterns the model can learn.
+- Number of attention heads:
+  - The number of parallel self-attention heads in each self-attention layer. This can improve the model's ability to capture dependencies between different time steps.
+- Dropout rate:
+  - The rate at which to randomly drop units in the self-attention and feedforward layers during training. This can prevent overfitting and improve the model's generalization performance.
+- Learning rate:
+  - The rate at which the model updates its parameters during training. A higher learning rate can lead to faster convergence, but too high a rate can cause the model to diverge and not converge to an optimal solution.
+
+### Examples
+
+Successful Example on Final Transformer Model:
+
+![Training Example 2.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/Transformer-v1.3/image/goodpredic.png?raw=true)
+
+Unsuccessful Example on Final Transformer Model:
+
+![Training Example 1.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/Transformer-v1.3/image/badpredic.png?raw=true)
+
+
+
+### Data
+
+The Transformer model includes additional features - weather condition , Visibility - that was not used in the GRU model. As a result, some data points had to be filtered out due to missing weather condition and Visibility information. Therefore, the dataset used in the Transformer model is slightly smaller than the one used in the GRU model.
+
+### Hyperparameters
+
+###### Note:Since the majority of the data and parameters remain consistent with those of the GRU model, only a few adjustments to the critical parameters of the Transformer model will be highlighted.
+
+#### Learning Rate: 0.0008
+
+The Transformer model has very many parameters and is difficult to train with a standard learning rate. A large number of parameters increases the complexity of the optimization problem. Therefore, here a lower learning rate of 0.0008 is chosen than in GRU, which allows the model to converge more smoothly and efficiently during the training process.
+
+![Partial Predictions ckpt 1428.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/Transformer-v1.3/image/learn%20rate.png.jpeg?raw=true)
+
+
+
+#### Number of Epochs: 160
+
+The following figure shows that the validation loss starts to exceed the training loss when the epoch reaches around 160. This indicates that the model begins to overfit the training data and fails to generalize well to new data. Stopping the training at this point can prevent further overfitting and improve the model's performance on new data.
+
+![learning_curve1.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/Transformer-v1.3/image/learning_curve1.png?raw=true)
+
+# Result
+
+### Quantitative and Qualitative Results-Transformer (rounded)
+
+| Normalized Loss (Normalized MSE) | Predicted Sample Mean | Predicted Standard Deviation | Target Sample Mean | Target Standard Deviation |
+| -------------------------------- | --------------------- | ---------------------------- | ------------------ | ------------------------- |
+| 0.0004                           | -0.6191               | 0.2821                       | -0.6113            | 0.2722                    |
+
+##### Quantitative:
+
+The overall performance of the model can be quantitatively examined by the loss or the MSE, which is around 0.0004. It represents the residual error of the model. Since the data set is normalized, the loss should be between 0 to 1. The lower the loss if better and 0 represents a perfect match between predictions and targets.
+
+The model's predicted sample mean is -0.6191, while the target sample mean is -0.6113. The difference between the two means is 0.0078, which indicates that the model's predictions are, on average, slightly lower than the target values.
+
+The predicted standard deviation is 0.2821, while the target standard deviation is 0.2722. The difference between the two is 0.0099, which indicates that the model's predictions are slightly less converged out than the target values.
+
+![Precitions.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/Transformer-v1.3/image/predict.png?raw=true)
+
+As shown in the figure above, the Transformer model accurately captures the general trend of temperature and performs better than the GRU model in terms of the difference between predicted and actual values. However, like the GRU model, the Transformer struggles to predict sudden changes in temperature.
+
+### Justification of Results
+
+The Transformer model performs better than the GRU model in predicting the overall temperature trend and reduces the error between the predicted and actual values. However, it also struggles with sudden changes in temperature. The reasons for this are similar to those mentioned for the GRU model, including limited training set, complex factors dependence, the uncertainty of chaotic systems, and short-term memory. The Transformer model also suffers from the same limitations in terms of short-term memory, but it can capture longer-term dependencies, making it a better choice for predicting overall temperature trends.
+
+The reasons why the Transformer model is predicting the overall trend well are similar to those mentioned for the GRU model, including the model architecture and time series data, short-term patterns, and feature selection. The Transformer model's attention mechanism can better capture the long-term dependencies between different weather factors, making it a more effective model for predicting overall temperature trends. The selected input features for the Transformer model are more than the GRU model and are suitable for predicting temperature trends as they capture various aspects of weather conditions that influence temperature changes.
+
+In summary, while the Transformer model shows improvements in predicting overall temperature trends, it still suffers from limitations in capturing sudden changes in temperature due to the same reasons as the GRU model. However, the Transformer model's attention mechanism can better capture longer-term dependencies, making it a more effective model for predicting overall temperature trends.
+
 
 
 # Ethical Consideration
