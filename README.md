@@ -299,7 +299,7 @@ The reason why the model is predicting the overall trend well:
 
 ## Introduction
 
-This project also considers the  Transformer model architectures for weather forecasting: Gated Recurrent Unit (GRU) and Transformer. While GRU has been commonly used in sequence-to-sequence prediction tasks, it can encounter issues with gradient explosion and vanishing due to cyclic connections. In contrast, Transformer, a neural network architecture introduced in the paper "Attention is All You Need," does not have these issues and has been shown to be effective in a variety of natural language processing tasks. Transformer is also applicable to weather forecasting and has the potential to outperform GRU in this task. Therefore, both models were evaluated, and Transformer was selected as one of the model architectures for the project.
+This project also implemented the Transformer model for weather forecasting. While GRU has been commonly used in sequence-to-sequence prediction tasks, it can encounter issues with gradient explosion and vanishing due to cyclic connections. In contrast, Transformer, a neural network architecture introduced in the paper "Attention is All You Need," does not have these issues and has been shown to be effective in a variety of natural language processing tasks. The transformer is also applicable to weather forecasting and has the potential to outperform GRU in this task. Therefore, both models were evaluated, and Transformer was selected as one of the model architectures for the project.
 
 ### Parameters
 
@@ -340,7 +340,7 @@ The Transformer model includes additional features - weather condition , Visibil
 
 ### Hyperparameters
 
-###### Note:Since the majority of the data and parameters remain consistent with those of the GRU model, only a few adjustments to the critical parameters of the Transformer model will be highlighted.
+###### Note: Since the majority of the data and parameters remain consistent with those of the GRU model, only a few adjustments to the critical parameters of the Transformer model will be highlighted.
 
 #### Learning Rate: 0.0008
 
@@ -358,7 +358,7 @@ The following figure shows that the validation loss starts to exceed the trainin
 
 # Result
 
-### Quantitative and Qualitative Results-Transformer (rounded)
+### Quantitative and Qualitative Results - Transformer (rounded)
 
 | Normalized Loss (Normalized MSE) | Predicted Sample Mean | Predicted Standard Deviation | Target Sample Mean | Target Standard Deviation |
 | -------------------------------- | --------------------- | ---------------------------- | ------------------ | ------------------------- |
@@ -366,7 +366,7 @@ The following figure shows that the validation loss starts to exceed the trainin
 
 ##### Quantitative:
 
-The overall performance of the model can be quantitatively examined by the loss or the MSE, which is around 0.0004. It represents the residual error of the model. Since the data set is normalized, the loss should be between 0 to 1. The lower the loss if better and 0 represents a perfect match between predictions and targets.
+The model's overall performance can be quantitatively examined by the loss or the MSE, which is around 0.0004. It represents the residual error of the model. Since the data set is normalized, the loss should be between 0 to 1. The lower the loss if better and 0 represents a perfect match between predictions and targets.
 
 The model's predicted sample mean is -0.6191, while the target sample mean is -0.6113. The difference between the two means is 0.0078, which indicates that the model's predictions are, on average, slightly lower than the target values.
 
@@ -383,8 +383,6 @@ The Transformer model performs better than the GRU model in predicting the overa
 The reasons why the Transformer model is predicting the overall trend well are similar to those mentioned for the GRU model, including the model architecture and time series data, short-term patterns, and feature selection. The Transformer model's attention mechanism can better capture the long-term dependencies between different weather factors, making it a more effective model for predicting overall temperature trends. The selected input features for the Transformer model are more than the GRU model and are suitable for predicting temperature trends as they capture various aspects of weather conditions that influence temperature changes.
 
 In summary, while the Transformer model shows improvements in predicting overall temperature trends, it still suffers from limitations in capturing sudden changes in temperature due to the same reasons as the GRU model. However, the Transformer model's attention mechanism can better capture longer-term dependencies, making it a more effective model for predicting overall temperature trends.
-
-
 
 # Ethical Consideration
 
