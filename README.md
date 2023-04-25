@@ -299,7 +299,7 @@ The reason why the model is predicting the overall trend well:
 
 ## Introduction
 
-This project also implemented the Transformer model for weather forecasting. While GRU has been commonly used in sequence-to-sequence prediction tasks, it can encounter issues with gradient explosion and vanishing due to cyclic connections. In contrast, Transformer, a neural network architecture introduced in the paper "Attention is All You Need," does not have these issues and has been shown to be effective in a variety of natural language processing tasks. The transformer is also applicable to weather forecasting and has the potential to outperform GRU in this task. Therefore, both models were evaluated, and Transformer was selected as one of the model architectures for the project.
+This project also considers the  Transformer model architectures for weather forecasting: Gated Recurrent Unit (GRU) and Transformer. While GRU has been commonly used in sequence-to-sequence prediction tasks, but it still has some limitations in capturing long-term dependencies in sequences. This is where Transformer can be useful as it uses self-attention mechanisms to capture long-term dependencies in the input sequence without relying on cyclic connections, which makes it less prone to gradient explosion and vanishing problems. In contrast, Transformer, a neural network architecture introduced in the paper "Attention is All You Need," does not have these issues and has been shown to be effective in a variety of natural language processing tasks. Transformer is also applicable to weather forecasting and has the potential to outperform GRU in this task. Therefore, both models were evaluated, and Transformer was selected as one of the model architectures for the project.
 
 ### Parameters
 
@@ -309,17 +309,15 @@ This project also implemented the Transformer model for weather forecasting. Whi
 -   Output size
     -   The number of predictions. In the case of predicting the next 24 hours of data, the output size is 24.
 
-- Number of epochs (Please refer to [Hyperparameters Tuning](#Hyperparameters))
+- Number of epochs
   - The number of epochs refers to the number of times the entire training dataset is passed through the Transformer model during training. A higher number of epochs can help the model to learn more complex patterns in the data and improve the accuracy of predictions. However, training for too many epochs can lead to overfitting, where the model becomes too specialized to the training data and performs poorly on new, unseen data.
-- Hidden size
+- Hidden size:
   - The number of hidden units in the self-attention and feedforward layers. This determines the capacity of the model of capturing data patterns.
-- Number of layers
+- Number of layers:
   - The number of Transformer layers in the model. The more the layers, the more complex patterns the model can learn.
-- Number of attention heads
-  - The number of parallel self-attention heads in each self-attention layer. This can improve the model's ability to capture dependencies between different time steps.
-- Dropout rate
-  - The rate at which to randomly drop units in the self-attention and feedforward layers during training. This can prevent overfitting and improve the model's generalization performance.
-- Learning rate (Please refer to [Hyperparameters Tuning](#Hyperparameters))
+- Number of attention heads:
+  - The number of self-attention heads in each layer determines the model's ability to capture dependencies between different time steps in parallel. By default, the model uses a predetermined number of parallel self-attention heads. 
+- Learning rate:
   - The rate at which the model updates its parameters during training. A higher learning rate can lead to faster convergence, but too high a rate can cause the model to diverge and not converge to an optimal solution.
 
 ### Examples
@@ -340,7 +338,7 @@ The Transformer model includes additional features - weather condition , Visibil
 
 ### Hyperparameters
 
-###### Note: Since the majority of the data and parameters remain consistent with those of the GRU model, only a few adjustments to the critical parameters of the Transformer model will be highlighted.
+###### Note:Since the majority of the data and parameters remain consistent with those of the GRU model, only a few adjustments to the critical parameters of the Transformer model will be highlighted.
 
 #### Learning Rate: 0.0008
 
@@ -350,11 +348,20 @@ The Transformer model has very many parameters and is difficult to train with a 
 
 
 
+#### Number of Hidden Layers: 4
+
+Since transformers are feedforward networks without recurrent connections, they do not have the same capability to propagate information through time as GRU models do. As a result, transformers may need more layers to capture the same level of complexity as GRU models.
+
+#### Number of Hidden Units: 64
+
+Transformer rely heavily on self-attention mechanisms to model long-range dependencies. Self-attention allows the model to attend to different parts of the input sequence, which can help it capture complex patterns and relationships. However, this requires more parameters and computational resources to process the input. Hence 64 hidden units are chosen instead of the 32 hidden units used in the GRU model.
+
 #### Number of Epochs: 160
 
 The following figure shows that the validation loss starts to exceed the training loss when the epoch reaches around 160. This indicates that the model begins to overfit the training data and fails to generalize well to new data. Stopping the training at this point can prevent further overfitting and improve the model's performance on new data.
 
 ![learning_curve1.png](https://github.com/jingwenshi-dev/CSC413-Deep-Learning/blob/Transformer-v1.3/image/learning_curve1.png?raw=true)
+
 
 # Result
 
