@@ -309,17 +309,17 @@ This project also implemented the Transformer model for weather forecasting. Whi
 -   Output size
     -   The number of predictions. In the case of predicting the next 24 hours of data, the output size is 24.
 
-- Number of epochs
+- Number of epochs (Please refer to [Hyperparameters Tuning](#Hyperparameters))
   - The number of epochs refers to the number of times the entire training dataset is passed through the Transformer model during training. A higher number of epochs can help the model to learn more complex patterns in the data and improve the accuracy of predictions. However, training for too many epochs can lead to overfitting, where the model becomes too specialized to the training data and performs poorly on new, unseen data.
-- Hidden size:
+- Hidden size
   - The number of hidden units in the self-attention and feedforward layers. This determines the capacity of the model of capturing data patterns.
-- Number of layers:
+- Number of layers
   - The number of Transformer layers in the model. The more the layers, the more complex patterns the model can learn.
-- Number of attention heads:
+- Number of attention heads
   - The number of parallel self-attention heads in each self-attention layer. This can improve the model's ability to capture dependencies between different time steps.
-- Dropout rate:
+- Dropout rate
   - The rate at which to randomly drop units in the self-attention and feedforward layers during training. This can prevent overfitting and improve the model's generalization performance.
-- Learning rate:
+- Learning rate (Please refer to [Hyperparameters Tuning](#Hyperparameters))
   - The rate at which the model updates its parameters during training. A higher learning rate can lead to faster convergence, but too high a rate can cause the model to diverge and not converge to an optimal solution.
 
 ### Examples
